@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+  <title>For You Boss Ko 💜</title>
+
+<style>
+    body {
+      margin: 0;
+      font-family: 'Pixelify Sans', sans-serif;
+      background: #aa9cf3;
+      color: #4b0082;
+      text-align: center;
+    }
+     ::selection{
+      background: #4b0082;
+      color: white;
+      }
+    h1 {
+      margin-top: 50px;
+      font-size: 2rem;
+      color: #6d28d9;
+    }
+    p {
+      font-size: 1.3rem;
+    }
+    
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 24px;
+      animation: fall 5s linear infinite;
+      color: #a855f7;
+    }
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+        opacity: 0.2;
+      }
+    }
+    .scroll{
+      background: url('cloud.png') no-repeat center/cover;
+      height: 65px;
+      font-family: 'Pixelify Sans', sans-serif;
+      color: #a855f7;
+      font-weight: bold;
+    }
+    button {
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      background: #a855f7;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s;
+      font-family: 'Pixelify Sans', sans-serif;
+    }
+    .click {
+      text-align: center;
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      background: transparent;
+      color: #a855f7;
+      font-weight: bold;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #6d28d9;
+    }
+    .click:hover{
+      text-decoration: none;
+      background: transparent;
+    }
+    .container{
+      text-align: center;
+      /*border: 4px solid #6d28d9;*/
+      border-radius: 10px;
+      margin: 10px 20px;
+      font-size: 4rem;
+    }
+    nav{
+      margin: 40px 20px;
+      position: fixed;
+      top: 0;
+      background: #f3e8ff ;
+      width: auto;
+      height: 40px;
+      border-radius: 10px;
+      padding-top: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    nav a{
+      font-size: 25px;
+      margin: 15px 17px;
+      text-decoration: none;
+      color: #6d28d9;
+      font-weight: bold;
+    } 
+    nav a:hover{
+      text-decoration: underline;
+    }
+    nav a:active{
+      background-color: black;
+      border-radius: 5px;
+      color: white;
+    }
+    
+    section{
+      height: 100vh;
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+    }
+    #home h1{
+      margin-top: 200px;
+      margin-left: 20px;
+      margin-right: 20px;
+      font-size: 40px;
+    }
+    #home h2{
+      margin-bottom: 200px;
+      margin-left: 20px;
+    }
+    div .arrow{
+      border-radius: 10px;
+      width: 200px ;
+      font-size: 20px;
+      height: 50px;
+      background: #6d28d9 ;
+      color: white;
+      text-align: center;
+      opacity: 0.7;
+      margin-bottom: 100px;
+    }
+    #music{
+      padding-top: 90px;
+    }
+    #music img{
+      width: 290px;
+      height: auto;
+      margin: 0px;
+      border: 2px solid black;
+    }
+    #seekBar{
+      margin-top: 10px;
+    }
+    #letter{
+      padding-top: 90px;
+    }
+    .fade-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      z-index: 9999;
+      animation: fadeOut 3s ease forwards;
+    }
+
+    @keyframes fadeOut {
+      0%   { opacity: 1; }
+      100% { opacity: 0; visibility: hidden; }
+    }
+    #footer {
+      background: url('footer.jpeg') no-repeat center/cover;
+    }
+    #last{
+      background: #031749;
+    }
+  </style>
+</head>
+<body>
+  <div class="fade-overlay"></div>
+  <header>
+      <nav>
+<a href="#">💜</a>
+<a onclick="document.getElementById('music').scrollIntoView({behavior: 'smooth'})">Music</a>
+<a href="#letter">Letter</a>
+
+  </nav>
+  </header>
+
+  <main>
+    <section id="home">
+        <h1>WELCOME TO MY WEBSITE</h1>
+        <h2>Made just for you 💜</h2>
+        <div>
+<button class="scroll" onclick="document.getElementById('music').scrollIntoView({behavior: 'smooth'})">
+  SCROLL
+</button>
+        </div>
+    </section>
+
+<section id="music">
+  <h3>MUSIC</h3>
+        <img src="music.jpg" alt="logo">
+  <div class="player">
+    <audio id="audio" src="ikaw.mp3"></audio> <!-- Replace with your music file -->
+
+    <!-- Controls -->
+    <div>
+      <button onclick="playMusic()">▶ Play</button>
+      <button onclick="pauseMusic()">❚❚ Pause</button>
+    </div>
+
+    <!-- Seek Bar -->
+    <input type="range" id="seekBar" value="0" max="100">
+
+    <!-- Volume Control 
+    <label>🔊 Volume</label>
+    <input type="range" id="volume" min="0" max="1" step="0.01" value="1">-->
+  </div>
+</section>
+
+
+
+<section id="letter">
+  <button class="click" onclick="revealMessage()"><a href="#letter">"Click Me"</a></button>
+    <div class="container">
+      <p id="secret" style="display:none; font-size:1.5rem; margin-top:15px;"><img src="source.gif" style="width: 150px;"><br>💜 Hi, Boss. I hope ur in a good situation rn. I just wanna say, I’m really glad and thankful I met you. I luv u always and thank you for existing in my life. <br> -patrisio 💜 </p>
+      
+  </div>
+</section>
+<section id="footer">
+  
+</section>
+<section id="last">
+  
+</section>
+  </main>
+
+
+  <script>
+    const audio = document.getElementById("audio");
+    const seekBar = document.getElementById("seekBar");
+  /*  const volume = document.getElementById("volume");*/
+
+    function playMusic() {
+      audio.play();
+    }
+
+    function pauseMusic() {
+      audio.pause();
+    }
+
+    // Update seekBar while music plays
+    audio.addEventListener("timeupdate", () => {
+      seekBar.value = (audio.currentTime / audio.duration) * 100;
+    });
+
+    // Seek to position
+    seekBar.addEventListener("input", () => {
+      audio.currentTime = (seekBar.value / 100) * audio.duration;
+    });
+
+    // Volume control
+    /*volume.addEventListener("input", () => {
+      audio.volume = volume.value;
+    });*/
+
+    // Raining harts
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "💜";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (2 + Math.random() * 3) + "s"; // fall speed
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    }
+    setInterval(createHeart, 300);
+
+    // Secret message
+    function revealMessage() {
+      document.getElementById("secret").style.display = "block";
+    }
+  </script>
+</body>
+</html>
